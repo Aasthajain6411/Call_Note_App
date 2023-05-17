@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Call Notes</string>
+    <string name="duration_s">Duration(s)</string>
+</resources>
