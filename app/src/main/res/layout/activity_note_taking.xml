@@ -71,6 +71,6 @@
         android:padding="20dp"
         android:textColor="@color/purple_500"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="NOTE- Reason of Calling and Discussion details both required to Save and Update the Note."/>
+        android:text="NOTE - Reason of Calling is a required field to save and Update the Note"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

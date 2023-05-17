@@ -57,7 +57,8 @@ class NoteTakingActivity : AppCompatActivity() {
         val noteText= reason_of_calling.text.toString()
         val discussText=discussion_details.text.toString()
         val id= intent.getStringExtra(Id)
-        if(noteText.isNotEmpty() && discussText.isNotEmpty()){
+        //&& discussText.isNotEmpty()
+        if(noteText.isNotEmpty() ){
             if(addUpdate=="Save"){
                 id?.let {
                     viewModel.insertNote(Note(noteText,discussText,id))
