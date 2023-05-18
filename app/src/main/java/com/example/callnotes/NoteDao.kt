@@ -25,4 +25,6 @@ interface NoteDao {
 
     @Query( "Select * From notes_table order by id ASC" )
     fun getAllNotes():LiveData<List<Note>>
+
+    //@Query("Select * from notes_table ")
 }

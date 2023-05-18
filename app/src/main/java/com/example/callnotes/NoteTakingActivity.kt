@@ -35,9 +35,6 @@ class NoteTakingActivity : AppCompatActivity() {
 
         viewModel=ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
-//        viewModel.allNotes.observe(this, Observer {
-//
-//        })
         addUpdate="Save"
         var noted:Note?
         scope.launch{noted= id?.let { viewModel.retrieveNote(it) }
@@ -63,6 +60,7 @@ class NoteTakingActivity : AppCompatActivity() {
                 id?.let {
                     viewModel.insertNote(Note(noteText,discussText,id))
                     Toast.makeText(this, "Note Saved",Toast.LENGTH_LONG).show()
+                    addUpdate="Edit"
                 }
             }
             else{
@@ -75,6 +73,24 @@ class NoteTakingActivity : AppCompatActivity() {
         }
         else{
             Toast.makeText(this, "Please fill the required fields!",Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun deleteData(view: View) {
+        val noteText= reason_of_calling.text.toString()
+        val discussText=discussion_details.text.toString()
+        val id= intent.getStringExtra(Id)
+        if(noteText.isNotEmpty() ){
+            id?.let {
+                viewModel.deleteNote(Note(noteText,discussText,id))
+                Toast.makeText(this, "Note Deleted",Toast.LENGTH_LONG).show()
+                addUpdate="Save"
+                reasonOfCalling.setText("")
+                discussion.setText("")
+            }
+        }
+        else{
+            Toast.makeText(this, "Nothing to Delete!",Toast.LENGTH_LONG).show()
         }
     }
 }

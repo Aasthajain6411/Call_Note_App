@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         val duration: String = c.getString(c.getColumnIndex(CallLog.Calls.DURATION)) // for duration
         val date: String = c.getString(c.getColumnIndex(CallLog.Calls.DATE)) // for date
+
         val type: Int = c.getString(c.getColumnIndex(CallLog.Calls.TYPE))
             .toInt() // for call type, Incoming or out going.
             val Stype:String = if(type==1){
